@@ -2,12 +2,14 @@ let pScore = 0;
 let cScore = 0;
 function game(){
 	let name = prompt('Welcome to the rock, paper, scissors game. What is your name?');
+	/* Logic to play 5 rounds
 	for (let i = 0; i < 5; i++) {
 		let playerSelection = getPlayerChoice();
 		let computerSelection = getComputerChoice();
 		console.log(playRound(playerSelection, computerSelection));
 		console.log(`${name}: ${pScore} | Computer: ${cScore}`)
 	}
+	*/
 }
 
 function playRound(playerSelection, computerSelection) {
