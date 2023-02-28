@@ -1,3 +1,7 @@
 .playerButtons {
 	display: flex;
 }
+
+.btn {
+	flex: 1;
+}

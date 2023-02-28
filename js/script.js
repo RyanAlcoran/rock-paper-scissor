@@ -49,7 +49,13 @@ function getPlayerChoice(){
 		
 	}
 	return input;
-
 }
 
-game();
+const buttons = document.querySelectorAll('.btn');
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
+  // and for each one we add a 'click' listener
+  button.addEventListener('click', () => {
+    console.log(playRound(button.value, getComputerChoice()));
+  });
+});
