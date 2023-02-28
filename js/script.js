@@ -51,11 +51,25 @@ function getPlayerChoice(){
 	return input;
 }
 
+const results = document.querySelector('#results');
+const score = document.createElement('div');
+score.classList.add('container');
+const playerScore = document.createElement('div');
+playerScore.classList.add('score');
+const computerScore = document.createElement('div');
+computerScore.classList.add('score');
+
 const buttons = document.querySelectorAll('.btn');
 // we use the .forEach method to iterate through each button
 buttons.forEach((button) => {
   // and for each one we add a 'click' listener
   button.addEventListener('click', () => {
-    console.log(playRound(button.value, getComputerChoice()));
+  	results.textContent = playRound(button.value, getComputerChoice());
+  	playerScore.textContent = `Player: ${pScore}`
+	computerScore.textContent = `Computer: ${cScore}`;
+	score.appendChild(playerScore);
+	score.appendChild(computerScore);
+	results.appendChild(score);
   });
 });
+
