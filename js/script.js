@@ -46,7 +46,6 @@ function getPlayerChoice(){
 	let input = prompt('Enter rock, paper, or scissor').toLowerCase();
 	while (input != 'rock' && input != 'paper' && input != 'scissor') {
 		input = prompt('That is not a valid choice. Please enter rock, paper, or scissor').toLowerCase();
-		
 	}
 	return input;
 }
@@ -64,12 +63,26 @@ const buttons = document.querySelectorAll('.btn');
 buttons.forEach((button) => {
   // and for each one we add a 'click' listener
   button.addEventListener('click', () => {
-  	results.textContent = playRound(button.value, getComputerChoice());
-  	playerScore.textContent = `Player: ${pScore}`
-	computerScore.textContent = `Computer: ${cScore}`;
-	score.appendChild(playerScore);
-	score.appendChild(computerScore);
-	results.appendChild(score);
+  	let roundResult = playRound(button.value, getComputerChoice());
+  	if(pScore < 5 && cScore < 5){
+  		results.textContent = roundResult;
+	  	playerScore.textContent = `Player: ${pScore}`
+		computerScore.textContent = `Computer: ${cScore}`;
+		score.appendChild(playerScore);
+		score.appendChild(computerScore);
+		results.appendChild(score);	
+	}
+  	else if(pScore == 5 || cScore == 5){
+  		if(pScore > cScore){
+  			results.textContent = 'You won the game!!';	
+  		}
+  		else{
+  			results.textContent = 'You lost the game!!';
+  		}
+  	}
+  	else {
+  		results.textContent ="";
+  	}
   });
 });
 
