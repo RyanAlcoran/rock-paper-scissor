@@ -10,12 +10,26 @@
 	<div class="title">
 		<h1>Rock Paper Scissors</h1>
 	</div>
-	<div class="playerButtons">
-		<button class="btn" value="rock">Rock</button>
-		<button class="btn" value="paper">Paper</button>
-		<button class="btn" value="scissor">Scissor</button>
-	</div>
-	<div id="results">
+	<div class="container">
+		<div class="scoreboard">
+			<div class="container-vertical" id="pScore">
+				<div class="name">
+					Player
+				</div>	
+			</div>
+			<div class="container-vertical" id="cScore">
+				<div class="name">
+					Computer
+				</div>
+			</div>
+		</div>
+		<div class="content" id="results"></div>
+		<div class="playerButtons">
+			<button class="btn" value="rock">Rock</button>
+			<button class="btn" value="paper">Paper</button>
+			<button class="btn" value="scissor">Scissor</button>
+		</div>
+		<div class="content"><button class="btn reset" id="reset">Reset</button></div>
 	</div>
 	<script src="js/script.js"></script>
 </body>

@@ -51,28 +51,42 @@ function getPlayerChoice(){
 }
 
 const results = document.querySelector('#results');
-const score = document.createElement('div');
-score.classList.add('container');
+const pScoreContainer = document.querySelector('#pScore');
+const cScoreContainer = document.querySelector('#cScore');
 const playerScore = document.createElement('div');
 playerScore.classList.add('score');
 const computerScore = document.createElement('div');
 computerScore.classList.add('score');
+const playerChoice = document.createElement('div');
+playerChoice.classList.add('choice');
+const computerChoice = document.createElement('div')
+computerChoice.classList.add('choice');
+playerScore.textContent = ` ${pScore}`;
+computerScore.textContent = `${cScore}`;
+
+pScoreContainer.appendChild(playerScore);
+cScoreContainer.appendChild(computerScore);
+pScoreContainer.appendChild(playerChoice);
+cScoreContainer.appendChild(computerChoice);
 
 const buttons = document.querySelectorAll('.btn');
 // we use the .forEach method to iterate through each button
 buttons.forEach((button) => {
   // and for each one we add a 'click' listener
   button.addEventListener('click', () => {
-  	let roundResult = playRound(button.value, getComputerChoice());
+  	let c = getComputerChoice();
+  	let roundResult = playRound(button.value, c);
+
   	if(pScore < 5 && cScore < 5){
   		results.textContent = roundResult;
-	  	playerScore.textContent = `Player: ${pScore}`
-		computerScore.textContent = `Computer: ${cScore}`;
-		score.appendChild(playerScore);
-		score.appendChild(computerScore);
-		results.appendChild(score);	
+	  	playerScore.textContent = ` ${pScore}`;
+		computerScore.textContent = `${cScore}`;
+		playerChoice.textContent = capitalize(button.value);
+  		computerChoice.textContent = c;
 	}
   	else if(pScore == 5 || cScore == 5){
+  		playerScore.textContent = ` ${pScore}`
+		computerScore.textContent = `${cScore}`;
   		if(pScore > cScore){
   			results.textContent = 'You won the game!!';	
   		}
@@ -82,6 +96,8 @@ buttons.forEach((button) => {
   	}
   	else {
   		results.textContent ="";
+  		playerChoice.textContent =""
+  		computerChoice.textContent = ""
   	}
   });
 });
