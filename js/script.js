@@ -69,7 +69,7 @@ cScoreContainer.appendChild(computerScore);
 pScoreContainer.appendChild(playerChoice);
 cScoreContainer.appendChild(computerChoice);
 
-const buttons = document.querySelectorAll('.btn');
+const buttons = document.querySelectorAll('.playerBtn');
 // we use the .forEach method to iterate through each button
 buttons.forEach((button) => {
   // and for each one we add a 'click' listener
@@ -100,5 +100,10 @@ buttons.forEach((button) => {
   		computerChoice.textContent = ""
   	}
   });
+});
+
+const resetButton = document.querySelector('.reset');
+resetButton.addEventListener('click', () => {
+	location.reload();
 });
 
